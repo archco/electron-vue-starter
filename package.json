@@ -16,7 +16,7 @@
   "author": "archco",
   "license": "MIT",
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.12",
+    "@vue/test-utils": "^1.0.0-beta.13",
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
@@ -25,7 +25,7 @@
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "electron": "^1.8.4",
-    "electron-builder": "^20.7.1",
+    "electron-builder": "^20.8.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "jest": "^22.4.3",
     "node-sass": "^4.8.3",
@@ -37,9 +37,9 @@
     "style-loader": "^0.20.3",
     "vue": "^2.5.16",
     "vue-jest": "^2.3.0",
-    "vue-loader": "^14.2.1",
+    "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.2.0",
+    "webpack": "^4.3.0",
     "webpack-cli": "^2.0.13"
   },
   "babel": {
