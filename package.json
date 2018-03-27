@@ -4,8 +4,9 @@
   "description": "Electron-Vue Starter.",
   "main": "dist/main.js",
   "scripts": {
-    "predev": "npm run compile:main && npm run compile:renderer",
-    "dev": "concurrently \"npm run compile:main -- --watch\" \"npm run compile:renderer -- --watch\" \"electron .\"",
+    "predev": "npm run compile",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run compile:main -- --watch\" \"npm run compile:renderer -- --watch\" \"electron .\"",
+    "compile": "npm run compile:main && npm run compile:renderer",
     "compile:main": "babel src/main -d dist",
     "compile:renderer": "webpack --config task/webpack.config.js --hide-modules",
     "test": "npm run test:unit && npm run test:e2e",
