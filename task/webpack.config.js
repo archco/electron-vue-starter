@@ -1,9 +1,12 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const env = process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: ['./src/renderer/style/index.scss', './src/renderer/script/index.js'],
-  mode: 'development',
+  mode: env,
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'script.js',
@@ -65,8 +68,18 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
     },
   },
-  devtool: 'source-map',
+  devtool: env === 'production' ? false : 'source-map',
   plugins: [
     new ExtractTextPlugin('style.css'),
   ],
 };
+
+if (env === 'production') {
+  module.exports.plugins.push(new OptimizeCssAssetsPlugin({
+    assetNameRegExp: /\.css$/g,
+    cssProcessor: require('cssnano'),
+    cssProcessorOptions: {
+      discardComments: { removeAll: false },
+    },
+  }));
+}
