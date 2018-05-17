@@ -20,13 +20,15 @@ function glob(pattern, options) {
 (async function () {
   // remove old html files.
   const oldFiles = await glob('dist/*.html');
-  oldFiles.forEach(async f => await fs.remove(f));
+  for (const file of oldFiles) {
+    await fs.remove(file);
+  }
 
   // copy html files.
   const files = await glob('src/renderer/*.html');
-  files.forEach(async f => {
-    const dest = `dist/${path.parse(f).base}`;
-    await fs.copy(f, dest);
-    console.log(`Copy ${f} to ${dest}.`);
-  });
+  for (const file of files) {
+    const dest = `dist/${path.parse(file).base}`;
+    await fs.copy(file, dest);
+    console.log(`Copy ${file} to ${dest}.`);
+  }
 })();
