@@ -16,7 +16,7 @@ export default {
       mainColor,
     };
   }
-}
+};
 </script>
 
 <style lang="scss">
