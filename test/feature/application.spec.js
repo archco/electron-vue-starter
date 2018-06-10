@@ -1,6 +1,7 @@
-import createApp, { Application } from '../createApp';
+/// <reference path="../spectron.d.ts" />
+import createApp from '../createApp';
 
-/** @type {Application} */
+/** @type {spectron.Application} */
 let app;
 
 describe('#Launch', function () {
@@ -8,10 +9,10 @@ describe('#Launch', function () {
     app = createApp();
     return app.start();
   }, 10e3);
-  
+
   afterEach(() => {
     if (app && app.isRunning()) {
-      return app.stop()
+      return app.stop();
     }
   });
 

@@ -4,6 +4,12 @@ import { Application } from 'spectron';
 
 export { Application };
 
+/**
+ * Create spectron test application.
+ *
+ * @export
+ * @returns {Application}
+ */
 export default function createApp() {
   return new Application({
     path: electron,
